@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'Maru Minya';
+    src: url(../fonts/x12y12pxMaruMinyaM.ttf) format('truetype');
+}
+
+/* 全体の設定 */
+body,
+h1,
+ul,
+li,
+a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Maru Minya', sans-serif;
+    color: #FDF8FE;
+    font-size: 16px;
+    line-height: 120%;
+    text-shadow: 1px 1px 1px #8144DD;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* レイアウト設定 */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* ヘッダー */
+header {
+    background-color: #C696E7;
+    padding: 20px 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(212, 159, 212, 1.0);
+}
+
+.header-right ul li a {
+    padding: 10px 15px;
+    border-radius: 20px;
+    /* ボタンのような見た目に */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-right ul li a:hover {
+    background-color: #FDF8FE;
+    color: #C696E7;
+    /* ホバー時の色を反転 */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-left,
+.header-right {
+    flex: 0 1 auto;
+}
+
+.header-right {
+    text-align: right;
+}
+
+.header-right ul {
+    display: flex;
+    gap: 20px;
+}
+
+.header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-center h1 {
+    font-size: 20px;
+}
+
+.logo {
+    height: 85px;
+    width: auto;
+}
+
+/* メインコンテンツ */
+main {
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 190px);
+    background: #F6C7FF url(../images/background.png) center/cover no-repeat;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 90px;
+}
+
+.title {
+    width: 500px;
+    height: auto;
+}
+
+.title-container {
+    position: relative;
+    display: inline-block;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title-text {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    width: 80%;
+}
+
+/* サブナビゲーション */
+.subnav-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 7px;
+}
+
+.subnav {
+    padding: 10px 20px;
+    color: #fcf57d;
+    background-color: #e796e7d3;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.subnav:hover {
+    background-color: #FDF8FE;
+    color: #e796e7d3;
+}
+
+/* フッター */
+footer {
+    background-color: #C696E7;
+    padding: 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    margin: 0;
+    color: #FDF8FE;
+}
+
+/* 最近のキラキラセクション */
+.recent-image {
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.sub-back {
+    background-color: #F6C7FF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recent-container {
+    height: 190px;
+    width: 440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.recent-text {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.recent-explain {
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    font-size: 14px;
+}
+
+.upload-title {
+    height: 60px;
+    width: 425px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.recent-explain {
+    color:#bb7ece;
+    text-shadow: #c9a3bf 1px 1px 1px;
+}

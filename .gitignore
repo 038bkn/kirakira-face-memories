@@ -1,0 +1,42 @@
+# PHP とプロジェクト関連の基本設定
+*.log
+*.env
+uploads/
+*.php~
+*.phar
+
+# IDE / エディタ設定
+.vscode/
+.idea/
+
+# ビルド生成物
+dist/
+build/
+
+# macOS のシステムファイル
+.DS_Store
+
+# Windows のシステムファイル
+Thumbs.db
+ehthumbs.db
+
+# その他の一般的な設定
+vendor/
+node_modules/
+.env.local
+.env.*.local
+.npm/
+.yarn/
+
+# キャッシュファイル
+*.cache
+.cache/
+*.tmp
+*.swp
+
+# ログファイル
+*.log
+*.sql
+*.sqlite
+
+config.php
