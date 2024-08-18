@@ -1,0 +1,40 @@
+.slideshow-container {
+    position: relative;
+    margin: auto;
+    max-height: 100px; /* スライドショー全体の最大幅を指定 */
+}
+
+.slide img {
+    max-width: 300px !important; /* 横幅を親要素内に収める */
+    max-height: 150px !important; /* 高さを最大300pxに制限 */
+    width: auto !important; /* アスペクト比を保ちながら自動調整 */
+    height: auto !important; /* アスペクト比を保ちながら自動調整 */
+    margin: auto;
+    display: block;
+    object-fit: contain; /* 画像全体が収まるように調整 */
+}
+
+.caption {
+    color: #FDF8FE;
+    font-size: 14px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    margin: 60px 10px;
+    background-color: #d496e7d3;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 100000;
+}
+
+.active, .dot:hover {
+    background-color: #9b67aad3;
+}
