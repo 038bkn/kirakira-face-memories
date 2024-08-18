@@ -6,6 +6,7 @@
     <title>キラめも☆ホーム画面</title>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/uploadarea.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
@@ -49,8 +50,8 @@
                 <input class="submit-btn" type="submit" value="これでおk☆彡" name="submit">
                 </form>
             </div>
-            <p class="recent-text">☆最近のキラキラ☆</p>
-            <div class="recent-container sub-back">
+            <p class="recent-text">☆今までのキラキラ☆</p>
+            <!-- <div class="recent-container sub-back">
                 <img class="recent-image" src="./images/faceImage.png" alt="サンプル画像">
                 <p class="recent-explain">
                     〇月〇日 〇曜日<br>
@@ -61,6 +62,13 @@
                     すっごくキラキラ☆<br>
                     いい日になりそう♥
                 </p>
+            </div> -->
+            <div class="slideshow-container" id="slideshow-container">
+                <!-- スライドショーがここに動的に追加される -->
+            </div>
+            
+            <div style="text-align:center" id="dots-container">
+                <!-- ドットナビゲーションがここに動的に追加される -->
             </div>
         </div>
     </main>
