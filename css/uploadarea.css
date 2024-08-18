@@ -22,6 +22,10 @@
     font-size: 15px;
 }
 
+.submit-button {
+    margin-top: 50px;
+}
+
 .submit-button:hover {
     background-color: #EE90FF;
 }

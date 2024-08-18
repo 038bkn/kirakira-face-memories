@@ -230,7 +230,8 @@ footer p {
     padding: 10px;
 }
 
-.recent-explain {
+.recent-explain, .explain {
     color:#bb7ece;
-    text-shadow: #c9a3bf 1px 1px 1px;
+    text-shadow: #d4b6cc 1px 1px 1px;
 }
+

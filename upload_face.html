@@ -6,6 +6,7 @@
     <title>キラめも☆自撮りアップロード画面</title>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/uploadarea.css">
+    <link rel="stylesheet" href="./css/upload_face.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -31,11 +32,25 @@
     <main>
         <div class="container">
             <div class="sub-back upload-title">
-                <p>
+                <p class="explain">
                     自撮りアップロードの時間だよ―！！！<br>
                     ベストショットをアップして、キラリ☆度をチェック！
                 </p>
             </div>
+            <div class="upload-container">
+                <p>ステキな写真を選んでね～☆</p>
+                <div class="file-drop-area">
+                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                        <span class="fake-btn">ファイルを選択</span>
+                        <span class="file-msg">ここにドラッグ＆ドロップしてネ ♡</span>
+                        <input class="file-input" type="file" name="image" accept="image/*"><br>
+                    </form>
+                </div>
+                <div id="image-preview-container">
+                    <img id="image-preview" src="" alt="プレビュー">
+                </div>
+            </div>
+            <input class="submit-btn" type="submit" value="これでおk☆彡" name="submit">
     </main>
     <footer>
         <div class="container">
@@ -43,6 +58,21 @@
         </div>
     </footer>
     <script src="./js/script.js"></script>
+    <script>
+        // 画像プレビュー機能
+        $('.file-input').on('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+                $('#image-preview').attr('src', e.target.result).show();
+            }
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 
 </html>
