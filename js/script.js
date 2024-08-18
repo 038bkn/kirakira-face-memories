@@ -1,10 +1,3 @@
-$(document).ready(function() {
-  $("#upload-now").click(function(event) {
-      event.preventDefault(); // デフォルトのリンク動作を無効にする
-      window.location.href = "upload_face.html"; // 指定したページに遷移
-  });
-});
-
 var $fileInput = $('.file-input');
 var $droparea = $('.file-drop-area');
 
@@ -31,4 +24,21 @@ $fileInput.on('change', function() {
     // otherwise show number of files
     $textContainer.text(filesCount + ' files selected');
   }
+});
+
+// 画像プレビュー機能
+$(document).ready(function() {
+  $('.file-input').on('change', function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+          $('#preview-message').hide(); // プレビューが表示される前のメッセージを非表示にする
+          $('#image-preview').attr('src', e.target.result).show();
+      }
+      
+      if (file) {
+          reader.readAsDataURL(file);
+      }
+  });
 });

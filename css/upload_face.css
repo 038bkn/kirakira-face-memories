@@ -1,28 +1,18 @@
 .submit-btn {
-    background: linear-gradient(to right, #EE90FF, #BD96FF);
-    border: none;
-    border-radius: 25px;
-    padding: 12px 25px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 1px 1px 1px #8144DD;
     position: fixed;
-    bottom: 20px;
+    bottom: 150px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .submit-btn:hover {
-    background: linear-gradient(to right, #BD96FF, #EE90FF);
     transform: translateX(-50%) translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .submit-btn:active {
     transform: translateX(-50%) translateY(0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #image-preview-container {
@@ -31,6 +21,15 @@
 }
 
 #image-preview {
-    max-width: 300px;
+    max-width: 400px;
     display: none;
+}
+
+.file-drop-area {
+    margin-bottom: -5px;
+}
+
+.sub-back {
+    margin-top: 15px;
+    margin-bottom: 30px;
 }

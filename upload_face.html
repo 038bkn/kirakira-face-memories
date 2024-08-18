@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/uploadarea.css">
     <link rel="stylesheet" href="./css/upload_face.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +20,7 @@
             </div>
             <div class="header-right">
                 <ul>
-                    <li><a href="#">ホーム</a></li>
+                    <li><a href="index.html">ホーム</a></li>
                     <li><a href="album.html">アルバム</a></li>
                     <li><a href="challenge.html">チャレンジ</a></li>
                     <li><a href="ranking.html">ランキング</a></li>
@@ -47,7 +46,14 @@
                     </form>
                 </div>
                 <div id="image-preview-container">
-                    <img id="image-preview" src="" alt="プレビュー">
+                    <p id="preview-message">
+                        ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★<br>
+                        ★　　　　　　　　　　　　　　　　　　☆<br>
+                        ☆　ここにプレビューが表示されるよ～　★<br>
+                        ★　　　　　　　　　　　　　　　　　　☆<br>
+                        ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
+                    </p>
+                    <img id="image-preview" src="" alt="プレビュー" style="display: none;">
                 </div>
             </div>
             <input class="submit-btn" type="submit" value="これでおk☆彡" name="submit">
@@ -57,6 +63,7 @@
             <p>&copy; 2024 キラリ☆. All rights reserved.</p>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/script.js"></script>
     <script>
         // 画像プレビュー機能
