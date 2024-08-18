@@ -235,3 +235,6 @@ footer p {
     text-shadow: #d4b6cc 1px 1px 1px;
 }
 
+#preview-message {
+    padding: 60px;
+}

@@ -22,14 +22,6 @@
     font-size: 15px;
 }
 
-.submit-button {
-    margin-top: 50px;
-}
-
-.submit-button:hover {
-    background-color: #EE90FF;
-}
-
 .file-drop-area {
     display: flex;
     align-items: center;
@@ -101,6 +93,7 @@ input {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-shadow: 1px 1px 1px #8144DD;
     margin-top: 15px;
+    z-index: 100;
 }
 
 .submit-btn:hover {
