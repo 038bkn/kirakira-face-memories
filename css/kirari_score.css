@@ -1,0 +1,7 @@
+.explain {
+    text-align: center; /* 追加: テキストを中央揃えに */
+}
+
+#image-preview-container {
+    margin-top: 100px;
+}
