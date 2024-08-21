@@ -196,9 +196,6 @@ footer p {
     background-color: #F6C7FF;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .recent-container {
@@ -235,6 +232,10 @@ footer p {
     text-shadow: #d4b6cc 1px 1px 1px;
 }
 
-#preview-message {
-    padding: 60px;
+#preview-area img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#previe-area p {
 }
