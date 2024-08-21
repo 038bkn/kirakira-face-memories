@@ -10,9 +10,16 @@
 }
 
 @keyframes bounceIn {
-    0%, 20%, 40%, 60%, 80%, 100% {
+
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -22,16 +29,12 @@
     font-size: 15px;
 }
 
-.submit-button:hover {
-    background-color: #EE90FF;
-}
-
 .file-drop-area {
     display: flex;
     align-items: center;
     width: 450px;
-    padding: 23px;
-    padding-bottom: 10px;
+    padding: 33px;
+    padding-bottom: 5px;
     border-radius: 3px;
     background: linear-gradient(to right, #BD96FF, #EE90FF);
     transition: background-color 0.2s;
@@ -40,6 +43,8 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
+    height: 50px;
+    margin-top: -6px;
 }
 
 .file-drop-area.is-active {
@@ -59,7 +64,7 @@
 .file-msg {
     font-size: 15px;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 3;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -96,7 +101,8 @@ input {
     transition: background 0.3s, transform 0.2s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-shadow: 1px 1px 1px #8144DD;
-    margin-top: 15px;
+    margin-top: 10px;
+    z-index: 100;
 }
 
 .submit-btn:hover {

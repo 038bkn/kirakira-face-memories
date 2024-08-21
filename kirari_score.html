@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>キラめも☆自撮りアップロード画面</title>
+    <title>キラめも☆キラリ度評価画面</title>
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/uploadarea.css">
-    <link rel="stylesheet" href="./css/upload_face.css">
+    <link rel="stylesheet" href="./css/kirari_score.css">
 </head>
 
 <body>
@@ -32,31 +31,15 @@
         <div class="container">
             <div class="sub-back upload-title">
                 <p class="explain">
-                    自撮りアップロードの時間だよ―！！！<br>
-                    ベストショットをアップして、キラリ☆度をチェック！
+                    あなたのスコアは・・・
                 </p>
-            </div>
-            <div class="upload-container">
-                <p>ステキな写真を選んでね～☆</p>
-                <div class="file-drop-area">
-                    <form action="php/upload.php" method="post" enctype="multipart/form-data">
-                        <span class="fake-btn">ファイルを選択する</span>か、
-                        <span class="file-msg">ここにドラッグ＆ドロップしてネ ♡</span>
-                        <input class="file-input" type="file" name="image" accept="image/*"><br>
-                    </form>
-                </div>
                 <div id="image-preview-container">
-                    <p id="preview-message">
-                        ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★<br>
-                        ★　　　　　　　　　　　　　　　　　　☆<br>
-                        ☆　ここにプレビューが表示されるよ～　★<br>
-                        ★　　　　　　　　　　　　　　　　　　☆<br>
-                        ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
-                    </p>
+                    <div id="preview-area">
+                        <img src="./images/sample-image.png" alt="サンプル画像">
+                    </div>
                     <img id="image-preview" src="" alt="プレビュー" style="display: none;">
                 </div>
             </div>
-            <input class="submit-btn" type="submit" value="これでおk☆彡" name="submit">
     </main>
     <footer>
         <div class="container">
