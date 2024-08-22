@@ -1,8 +1,7 @@
 <?php
 
 require './config.php';
-
-echo '<a href="display_images.php">View uploaded images</a>';
+require './comments.php';  // コメントテンプレートと関数をインクルード
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -35,12 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // キラリ☆度をランダムに生成
                 $kirari_score = rand(0, 100);
 
+                // ランダムコメントを生成
+                $comment = getRandomComment($kirari_score);
+
                 // データベースに情報を保存
-                $sql = "INSERT INTO new_images (file_name, upload_date, kirari_score) VALUES (?, NOW(), ?)";
+                $sql = "INSERT INTO new_images (file_name, upload_date, kirari_score, comments) VALUES (?, NOW(), ?, ?)";
                 $stmt = $conn->prepare($sql);
-                
+
                 if ($stmt) {
-                    $stmt->bind_param("si", $fileName, $kirari_score);
+                    $stmt->bind_param("sis", $fileName, $kirari_score, $comment);
                     $stmt->execute();
 
                     if ($stmt->affected_rows > 0) {
@@ -66,4 +68,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // データベース接続を閉じる
 $conn->close();
-?>
