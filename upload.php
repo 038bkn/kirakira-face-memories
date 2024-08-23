@@ -1,5 +1,4 @@
 <?php
-
 require './config.php';
 require './comments.php';  // コメントテンプレートと関数をインクルード
 
@@ -45,13 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $stmt->bind_param("sis", $fileName, $kirari_score, $comment);
                     $stmt->execute();
 
-                    if ($stmt->affected_rows > 0) {
-                        echo "File uploaded and data saved successfully!";
-                        echo '<a href="display_images.php">View uploaded images</a>';
-                    } else {
-                        echo "Failed to save data to the database.";
-                    }
-                    $stmt->close();
+                    // 挿入されたデータのIDを取得
+                    $last_id = $stmt->insert_id;
+
+                    // kirari_score.php にリダイレクト
+                    header("Location: kirari_score.php?id=" . $last_id);
+                    exit();
                 } else {
                     echo "Failed to prepare the SQL statement.";
                 }

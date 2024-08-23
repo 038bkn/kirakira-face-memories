@@ -99,7 +99,7 @@ echo json_encode($images);
                 echo '<p>Uploaded on: ' . htmlspecialchars($row['upload_date']) . '</p>';
                 echo '<p>キラリ☆度: ' . htmlspecialchars($kirariScore) . '点</p>';
                 echo '<p>評価: ' . getStars($kirariScore) . '</p>';
-                echo '<p>コメント: ' . getRandomComment($kirariScore) . '</p>'; // ここを修正
+                echo '<p>コメント: ' . getRandomComment($kirariScore) . '</p>';
                 echo '</div>';
             }
         } else {
