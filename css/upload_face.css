@@ -1,6 +1,6 @@
 .submit-btn {
     position: fixed;
-    bottom: 150px;
+    bottom: 110px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 18px;
@@ -21,7 +21,8 @@
 }
 
 #image-preview {
-    max-width: 400px;
+    max-width: 1000px;
+    max-height: 280px;
     display: none;
 }
 
@@ -32,4 +33,8 @@
 .sub-back {
     margin-top: 15px;
     margin-bottom: 30px;
+}
+
+.lottie {
+    top: 500px;
 }

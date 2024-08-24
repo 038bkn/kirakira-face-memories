@@ -1,7 +1,37 @@
 .explain {
-    text-align: center; /* 追加: テキストを中央揃えに */
+    text-align: center;
 }
 
 #image-preview-container {
     margin-top: 100px;
+}
+
+.image-preview img {
+    max-width: 1000px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 20px;
+}
+
+.sample_box13 {
+    padding: 1em 1.5em;
+    margin: 1em auto;  
+    background: #d796e7b0;
+    background-image: radial-gradient(#dbc2ebb0 10%, transparent 15%), radial-gradient(#dbc2ebb0 10%, transparent 15%);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    border-radius: 10px;
+    width: 700px;
+}
+
+.stars-container {
+    display: flex;
+    justify-content: center; /* スペースを均等に配置 */
+    letter-spacing: -2px; /* 必要に応じて調整 */
+}
+
+.subnav {
+    margin: 10px;
 }
