@@ -24,6 +24,7 @@
     max-width: 1000px;
     max-height: 280px;
     display: none;
+    margin: 0 auto;
 }
 
 .file-drop-area {
