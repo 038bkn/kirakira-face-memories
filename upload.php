@@ -5,9 +5,16 @@ require './comments.php';  // コメント生成関数をインクルード
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     $uploadDir = 'uploads/';
-    $uploadFile = $uploadDir . time() . '_' . basename($_FILES['image']['name']);  // ファイル名にタイムスタンプを追加
+    $uploadFile = $uploadDir . time() . '_' . basename($_FILES['image']['name']);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
+
+    // ファイル名のバリデーション（英数字といくつかの特殊文字以外は除外）
+    $fileName = pathinfo($uploadFile, PATHINFO_FILENAME);
+    if (!preg_match('/^[a-zA-Z0-9_-]+$/', $fileName)) {
+        echo "Sorry, the file name contains invalid characters.";
+        $uploadOk = 0;
+    }
 
     // 画像が既に存在しているか確認
     if (file_exists($uploadFile)) {
