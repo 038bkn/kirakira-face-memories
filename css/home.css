@@ -1,17 +1,17 @@
 .slideshow-container {
     position: relative;
     margin: auto;
-    max-height: 100px; /* スライドショー全体の最大幅を指定 */
+    max-height: 100px;
 }
 
 .slide img {
-    max-width: 300px !important; /* 横幅を親要素内に収める */
-    max-height: 150px !important; /* 高さを最大300pxに制限 */
-    width: auto !important; /* アスペクト比を保ちながら自動調整 */
-    height: auto !important; /* アスペクト比を保ちながら自動調整 */
+    max-width: 300px !important;
+    max-height: 150px !important;
+    width: auto !important;
+    height: auto !important;
     margin: auto;
     display: block;
-    object-fit: contain; /* 画像全体が収まるように調整 */
+    object-fit: contain;
 }
 
 .caption {
@@ -35,10 +35,11 @@
     z-index: 100000;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
     background-color: #9b67aad3;
 }
 
 .lottie {
-    top: 79%;    
+    top: 79%;
 }
