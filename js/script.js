@@ -1,175 +1,101 @@
-var $fileInput = $('.file-input');
-var $droparea = $('.file-drop-area');
+// ファイル入力関連の処理
+document.addEventListener("DOMContentLoaded", function() {
+  var fileInput = document.querySelector('.file-input');
+  var dropArea = document.querySelector('.file-drop-area');
 
-// highlight drag area
-$fileInput.on('dragenter focus click', function () {
-  $droparea.addClass('is-active');
-});
+  if (fileInput && dropArea) {
+      // ドラッグエリアをハイライト
+      fileInput.addEventListener('dragenter', function() {
+          dropArea.classList.add('is-active');
+      });
+      fileInput.addEventListener('focus', function() {
+          dropArea.classList.add('is-active');
+      });
+      fileInput.addEventListener('click', function() {
+          dropArea.classList.add('is-active');
+      });
 
-// back to normal state
-$fileInput.on('dragleave blur drop', function () {
-  $droparea.removeClass('is-active');
-});
+      // 通常状態に戻す
+      fileInput.addEventListener('dragleave', function() {
+          dropArea.classList.remove('is-active');
+      });
+      fileInput.addEventListener('blur', function() {
+          dropArea.classList.remove('is-active');
+      });
+      fileInput.addEventListener('drop', function() {
+          dropArea.classList.remove('is-active');
+      });
 
-// change inner text
-$fileInput.on('change', function () {
-  var filesCount = $(this)[0].files.length;
-  var $textContainer = $(this).prev();
+      // ファイル名を表示
+      fileInput.addEventListener('change', function() {
+          var filesCount = fileInput.files.length;
+          var textContainer = dropArea.querySelector('.file-msg');
 
-  if (filesCount === 1) {
-    // if single file is selected, show file name
-    var fileName = $(this).val().split('\\').pop();
-    $textContainer.text(fileName);
-  } else {
-    // otherwise show number of files
-    $textContainer.text(filesCount + ' files selected');
+          if (filesCount === 1) {
+              // 単一ファイルが選択された場合、ファイル名を表示
+              var fileName = fileInput.value.split('\\').pop();
+              textContainer.textContent = fileName;
+          } else {
+              // 複数ファイルが選択された場合、ファイル数を表示
+              textContainer.textContent = filesCount + ' files selected';
+          }
+      });
   }
+
+  // 画像プレビュー機能
+  var imagePreviewContainer = document.getElementById('image-preview-container');
+  var imagePreview = document.getElementById('image-preview');
+  if (fileInput && imagePreview) {
+      fileInput.addEventListener('change', function(event) {
+          var file = event.target.files[0];
+          var reader = new FileReader();
+
+          reader.onload = function(e) {
+              imagePreview.src = e.target.result;
+              imagePreview.style.display = 'block';
+              imagePreviewContainer.querySelector('.lottie').style.display = 'none'; // Lottieアニメーションを非表示にする
+          };
+
+          if (file) {
+              reader.readAsDataURL(file);
+          }
+      });
+  }
+
+  // スライドショー関連の処理
+  let slideIndex = 0;
+  function showSlides() {
+      var slides = document.getElementsByClassName("slide");
+      var dots = document.getElementsByClassName("dot");
+
+      // スライドやドットが存在しない場合、処理を中断
+      if (slides.length === 0 || dots.length === 0) {
+          console.log("スライドやドットが存在しません");
+          return;
+      }
+
+      // 全てのスライドを非表示にする
+      for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none"; 
+      }
+
+      slideIndex++;
+      if (slideIndex > slides.length) {
+          slideIndex = 1;
+      }
+
+      // ドットのアクティブ状態をリセット
+      for (let i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      // 現在のスライドを表示し、対応するドットをアクティブにする
+      slides[slideIndex-1].style.display = "block"; 
+      dots[slideIndex-1].className += " active";
+
+      // 2秒ごとにスライドを自動で切り替え
+      setTimeout(showSlides, 2000);
+  }
+
+  showSlides(); // スライドショーの自動再生を開始
 });
-
-// 画像プレビュー機能
-$(document).ready(function () {
-  $('.file-input').on('change', function (event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      $('#preview-message').hide(); // プレビューが表示される前のメッセージを非表示にする
-      $('#image-preview').attr('src', e.target.result).show();
-    }
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  });
-});
-
-// // PHPからランダムに画像を取得
-// fetch('get_random_images.php')
-//   .then(response => response.json())
-//   .then(images => {
-//     const slideshowContainer = document.getElementById('slideshow-container');
-//     const dotsContainer = document.getElementById('dots-container');
-//     let slideIndex = 0;
-
-//     images.forEach((image, index) => {
-//       // スライドを追加
-//       const slideDiv = document.createElement('div');
-//       slideDiv.className = 'slide fade';
-//       slideDiv.innerHTML = `
-//                 <img src="uploads/${image.file_name}" style="width:100%">
-//                 <div class="caption">キラリ☆${image.kirari_score}点</div>
-//             `;
-//       slideshowContainer.appendChild(slideDiv);
-
-//       // ドットを追加
-//       const dotSpan = document.createElement('span');
-//       dotSpan.className = 'dot';
-//       dotSpan.onclick = () => currentSlide(index + 1);
-//       dotsContainer.appendChild(dotSpan);
-//     });
-
-//     showSlides();
-
-//     function plusSlides(n) {
-//       showSlides(slideIndex += n);
-//     }
-
-//     function currentSlide(n) {
-//       showSlides(slideIndex = n - 1);
-//     }
-
-//     function showSlides() {
-//       let slides = document.getElementsByClassName("slide");
-//       let dots = document.getElementsByClassName("dot");
-//       if (slideIndex >= slides.length) { slideIndex = 0 }
-//       if (slideIndex < 0) { slideIndex = slides.length - 1 }
-//       for (let i = 0; i < slides.length; i++) {
-//         slides[i].style.display = "none";
-//       }
-//       for (let i = 0; i < dots.length; i++) {
-//         dots[i].className = dots[i].className.replace(" active", "");
-//       }
-//       slides[slideIndex].style.display = "block";
-//       dots[slideIndex].className += " active";
-//       slideIndex++;
-//       setTimeout(showSlides, 5000); // 5秒ごとにスライドを自動で切り替え
-//     }
-//   })
-//   .catch(error => console.error('Error:', error));
-
-//   fetch('php/get_random_images.php')
-//     .then(response => response.json())
-//     .then(images => {
-//         const slideshowContainer = document.getElementById('slideshow-container');
-//         const dotsContainer = document.getElementById('dots-container');
-//         let slideIndex = 0;
-
-//         images.forEach((image, index) => {
-//             // スライドを追加
-//             const slideDiv = document.createElement('div');
-//             slideDiv.className = 'slide fade';
-//             slideDiv.innerHTML = `
-//                 <img src="uploads/${image.file_name}" style="width:100%">
-//                 <div class="caption">キラリ☆${image.kirari_score}点</div>
-//             `;
-//             slideshowContainer.appendChild(slideDiv);
-
-//             // ドットを追加
-//             const dotSpan = document.createElement('span');
-//             dotSpan.className = 'dot';
-//             dotSpan.onclick = () => currentSlide(index + 1);
-//             dotsContainer.appendChild(dotSpan);
-//         });
-
-//         showSlides();
-
-//         function plusSlides(n) {
-//             showSlides(slideIndex += n);
-//         }
-
-//         function currentSlide(n) {
-//             showSlides(slideIndex = n - 1);
-//         }
-
-//         function showSlides() {
-//             let slides = document.getElementsByClassName("slide");
-//             let dots = document.getElementsByClassName("dot");
-//             if (slideIndex >= slides.length) {slideIndex = 0}
-//             if (slideIndex < 0) {slideIndex = slides.length - 1}
-//             for (let i = 0; i < slides.length; i++) {
-//                 slides[i].style.display = "none";  
-//             }
-//             for (let i = 0; i < dots.length; i++) {
-//                 dots[i].className = dots[i].className.replace(" active", "");
-//             }
-//             slides[slideIndex].style.display = "block";  
-//             dots[slideIndex].className += " active";
-//             slideIndex++;
-//             setTimeout(showSlides, 5000); // 5秒ごとにスライドを自動で切り替え
-//         }
-//     })
-//     .catch(error => console.error('Error:', error));
-
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    let slides = document.getElementsByClassName("slide");
-    let dots = document.getElementsByClassName("dot");
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-    
-    setTimeout(showSlides, 3000); // 3秒間隔でスライドを切り替える
-}

@@ -1,4 +1,4 @@
-<html lang="ja">
+<!-- <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -33,13 +33,8 @@
                 <p class="explain">
                     あなたのスコアは・・・
                 </p>
-                <div id="image-preview-container">
-                    <div id="preview-area">
-                        <img src="./images/sample-image.png" alt="サンプル画像">
-                    </div>
-                    <img id="image-preview" src="" alt="プレビュー" style="display: none;">
-                </div>
             </div>
+        </div>
     </main>
     <footer>
         <div class="container">
@@ -48,21 +43,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/script.js"></script>
-    <script>
-        // 画像プレビュー機能
-        $('.file-input').on('change', function(event) {
-            var file = event.target.files[0];
-            var reader = new FileReader();
-            
-            reader.onload = function(e) {
-                $('#image-preview').attr('src', e.target.result).show();
-            }
-            
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
 </body>
 
-</html>
+</html> -->

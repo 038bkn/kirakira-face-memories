@@ -2,47 +2,14 @@
 
 require './config.php';
 
-// データベースに接続
-$conn = new mysqli($servername, $username, $password, $database);
-
-// 接続確認
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // 画像情報をデータベースから取得
-$sql = "SELECT file_name, upload_date, kirari_score FROM new_images";
-$result = $conn->query($sql);
+$sql = "SELECT file_name, upload_date, kirari_score, comments FROM new_images";
+$stmt = $pdo->query($sql);
 
 // 星を表示する関数
 function getStars($score) {
     $stars = floor($score / 20); // 0-100のスコアを5段階に変換
     return str_repeat('★', $stars) . str_repeat('☆', 5 - $stars);
-}
-
-// コメントテンプレート
-$comments = [
-    '0-19' => 'もう少し頑張りましょう！',
-    '20-39' => '良い感じですが、さらに向上を目指しましょう！',
-    '40-59' => 'とても良いです！この調子で！',
-    '60-79' => '素晴らしいです！',
-    '80-100' => '完璧です！おめでとうございます！'
-];
-
-// コメントを選ぶ関数
-function getComment($score) {
-    global $comments;
-    if ($score <= 19) {
-        return $comments['0-19'];
-    } elseif ($score <= 39) {
-        return $comments['20-39'];
-    } elseif ($score <= 59) {
-        return $comments['40-59'];
-    } elseif ($score <= 79) {
-        return $comments['60-79'];
-    } else {
-        return $comments['80-100'];
-    }
 }
 ?>
 
@@ -74,29 +41,15 @@ function getComment($score) {
 <body>
     <h1>Uploaded Images</h1>
     <div class="image-gallery">
-        <?php
-        if ($result->num_rows > 0) {
-            // データベースに画像が存在する場合、表示する
-            while ($row = $result->fetch_assoc()) {
-                $fileName = htmlspecialchars($row['file_name']);
-                $kirariScore = $row['kirari_score'];
-                echo '<div class="image-item">';
-                echo '<img src="uploads/' . $fileName . '" alt="' . $fileName . '">';
-                echo '<p>Uploaded on: ' . htmlspecialchars($row['upload_date']) . '</p>';
-                echo '<p>キラリ☆度: ' . htmlspecialchars($kirariScore) . '点</p>';
-                echo '<p>評価: ' . getStars($kirariScore) . '</p>';
-                echo '<p>コメント: ' . getComment($kirariScore) . '</p>';
-                echo '</div>';
-            }
-        } else {
-            echo "<p>No images found.</p>";
-        }
-        ?>
+        <?php while ($row = $stmt->fetch()): ?>
+            <div class="image-item">
+                <img src="uploads/<?= htmlspecialchars($row['file_name']); ?>" alt="<?= htmlspecialchars($row['file_name']); ?>">
+                <p>Uploaded on: <?= htmlspecialchars($row['upload_date']); ?></p>
+                <p>キラリ☆度: <?= htmlspecialchars($row['kirari_score']); ?>点</p>
+                <p>評価: <?= getStars($row['kirari_score']); ?></p>
+                <p>コメント: <?= htmlspecialchars($row['comments']); ?></p>
+            </div>
+        <?php endwhile; ?>
     </div>
 </body>
 </html>
-
-<?php
-// データベース接続を閉じる
-$conn->close();
-?>
