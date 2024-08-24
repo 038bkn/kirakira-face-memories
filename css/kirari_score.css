@@ -15,21 +15,10 @@
     border-radius: 20px;
 }
 
-.sample_box13 {
-    padding: 1em 1.5em;
-    margin: 1em auto;  
-    background: #d796e7b0;
-    background-image: radial-gradient(#dbc2ebb0 10%, transparent 15%), radial-gradient(#dbc2ebb0 10%, transparent 15%);
-    background-position: 0 0, 10px 10px;
-    background-size: 20px 20px;
-    border-radius: 10px;
-    width: 700px;
-}
-
 .stars-container {
     display: flex;
-    justify-content: center; /* スペースを均等に配置 */
-    letter-spacing: -2px; /* 必要に応じて調整 */
+    justify-content: center;
+    letter-spacing: -2px;
 }
 
 .subnav {

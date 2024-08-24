@@ -1,25 +1,21 @@
+/* フォント設定 */
 @font-face {
     font-family: 'Maru Minya';
     src: url(../fonts/x12y12pxMaruMinyaM.ttf) format('truetype');
 }
 
 /* 全体の設定 */
-body,
-h1,
-ul,
-li,
-a {
+body, h1, ul, li, a {
     margin: 0;
     padding: 0;
     font-family: 'Maru Minya', sans-serif;
     color: #FDF8FE;
     font-size: 16px;
     line-height: 120%;
-    text-shadow: 1px 1px 1px #8144DD;
+    text-shadow: 2px 2px 8px rgba(136, 81, 173, 0.603);
 }
 
-html,
-body {
+html, body {
     height: 100%;
     overflow: hidden;
 }
@@ -32,7 +28,7 @@ a {
     text-decoration: none;
 }
 
-/* レイアウト設定 */
+/* コンテナ設定 */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -54,19 +50,6 @@ header {
     box-shadow: 0 4px 6px rgba(212, 159, 212, 1.0);
 }
 
-.header-right ul li a {
-    padding: 10px 15px;
-    border-radius: 20px;
-    /* ボタンのような見た目に */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.header-right ul li a:hover {
-    background-color: #FDF8FE;
-    color: #C696E7;
-    /* ホバー時の色を反転 */
-}
-
 header .container {
     display: flex;
     justify-content: space-between;
@@ -74,8 +57,7 @@ header .container {
     width: 100%;
 }
 
-.header-left,
-.header-right {
+.header-left, .header-right {
     flex: 0 1 auto;
 }
 
@@ -86,6 +68,17 @@ header .container {
 .header-right ul {
     display: flex;
     gap: 20px;
+}
+
+.header-right ul li a {
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-right ul li a:hover {
+    background-color: #FDF8FE;
+    color: #C696E7;
 }
 
 .header-center {
@@ -114,27 +107,15 @@ main {
     margin-top: 90px;
 }
 
-.title {
-    width: 500px;
-    height: auto;
-}
-
 .title-container {
     position: relative;
     display: inline-block;
     animation: fadeIn 1.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.title {
+    width: 500px;
+    height: auto;
 }
 
 .title-text {
@@ -144,6 +125,18 @@ main {
     transform: translateX(-50%);
     font-size: 15px;
     width: 80%;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* サブナビゲーション */
@@ -160,6 +153,7 @@ main {
     background-color: #e796e7d3;
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
+    text-shadow: 2px 2px 8px rgba(252, 245, 125, 0.2);
 }
 
 .subnav:hover {
@@ -183,6 +177,13 @@ footer p {
 }
 
 /* 最近のキラキラセクション */
+.recent-container {
+    height: 190px;
+    width: 440px;
+    margin: 0 auto;
+    position: relative;
+}
+
 .recent-image {
     height: 150px;
     position: absolute;
@@ -190,19 +191,6 @@ footer p {
     left: 23%;
     transform: translate(-50%, -50%);
     z-index: 1;
-}
-
-.sub-back {
-    background-color: #F6C7FF;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
-}
-
-.recent-container {
-    height: 190px;
-    width: 440px;
-    margin: 0 auto;
-    position: relative;
 }
 
 .recent-text {
@@ -219,19 +207,18 @@ footer p {
     font-size: 14px;
 }
 
-.upload-title {
-    height: 60px;
-    width: 425px;
-    margin: 0 auto;
-    border-radius: 20px;
-    padding: 10px;
+.sub-back {
+    background-color: #F6C7FF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
 }
 
 .recent-explain, .explain {
-    color:#bb7ece;
-    text-shadow: #d4b6cc 1px 1px 1px;
+    color: #bb7ece;
+    text-shadow: 1px 1px 1px #d4b6cc;
 }
 
+/* プレビューエリア */
 #preview-area img {
     max-width: 300px;
     max-height: 300px;
@@ -241,5 +228,29 @@ footer p {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
+}
 
+/* サンプルボックス */
+.sample_box13 {
+    padding: 1em 1.5em;
+    margin: 1em auto;
+    background: #d796e7b0;
+    background-image: radial-gradient(#dbc2ebb0 10%, transparent 15%), radial-gradient(#dbc2ebb0 10%, transparent 15%);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
+}
+
+/* アップロードタイトル */
+.upload-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 10px;
 }
