@@ -11,24 +11,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="header-left">
-                <img class="logo" src="./images/logo.png" alt="キラめもロゴ">
-            </div>
-            <div class="header-center">
-                <h1>ホーム</h1>
-            </div>
-            <div class="header-right">
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="album.html">アルバム</a></li>
-                    <li><a href="challenge.html">チャレンジ</a></li>
-                    <li><a href="ranking.html">ランキング</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+    <?php include 'header.php'; ?>
+
     <main>
         <div class="container">
             <div class="title-container">
@@ -37,8 +21,8 @@
                     自撮り写真をアップロードして、キラリ☆度をチェック！</p>
             </div>
             <div class="subnav-container">
-                <a href="upload_face.html" class="subnav" id="upload-now">今すぐアップロード</a>
-                <a href="album.html" class="subnav">アルバムを見る</a>
+                <a href="upload_face.php" class="subnav" id="upload-now">今すぐアップロード</a>
+                <a href="album.php" class="subnav">アルバムを見る</a>
             </div>
             <div class="upload-container">
                 <p>今日の自撮りをアップロードして、キラキラ度を測ってみよ～☆</p>
@@ -52,25 +36,6 @@
                 </form>
             </div>
             <p class="recent-text">☆今までのキラキラ☆(が表示される予定～♡)</p>
-            <!-- <div class="recent-container sub-back">
-                <img class="recent-image" src="./images/faceImage.png" alt="サンプル画像">
-                <p class="recent-explain">
-                    〇月〇日 〇曜日<br>
-                    お題「思いっきりキメてみて☆」<br>
-                    キラキラ度 85点<br>
-                    ★★★★☆<br>
-                    <br>
-                    すっごくキラキラ☆<br>
-                    いい日になりそう♥
-                </p>
-            </div> -->
-            <!-- <div class="slideshow-container" id="slideshow-container"> -->
-            <!-- スライドショーがここに動的に追加される -->
-            <!-- </div> -->
-
-            <!-- <div style="text-align:center" id="dots-container"> -->
-            <!-- ドットナビゲーションがここに動的に追加される -->
-            <!-- </div> -->
             <div class="lottie">
                 <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
                     type="module"></script>
@@ -81,11 +46,9 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 キラリ☆. All rights reserved.</p>
-        </div>
-    </footer>
+
+    <?php include 'footer.php'; ?>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/script.js"></script>
 </body>

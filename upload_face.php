@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -10,24 +11,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="header-left">
-                <img class="logo" src="./images/logo.png" alt="キラめもロゴ">
-            </div>
-            <div class="header-center">
-                <h1>ホーム</h1>
-            </div>
-            <div class="header-right">
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="album.html">アルバム</a></li>
-                    <li><a href="challenge.html">チャレンジ</a></li>
-                    <li><a href="ranking.html">ランキング</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+    <?php include 'header.php'; ?>
+
     <main>
         <div class="container">
             <div class="upload-title">
@@ -46,9 +31,9 @@
                 </div>
             </div>
             <div id="image-preview-container">
-                <div class="lottie"">
-                        <script src=" https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-                    type="module">
+                <div class="lottie">
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                        type="module">
                     </script>
 
                     <dotlottie-player src="https://lottie.host/424e85a5-7bf9-4ab3-a4f0-4109450153a3/7C3Eku2aLu.json"
@@ -61,11 +46,9 @@
         <input class="submit-btn" type="submit" value="これでおk☆彡" name="submit">
     </form>
     </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 キラリ☆. All rights reserved.</p>
-        </div>
-    </footer>
+
+    <?php include 'footer.php'; ?>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/script.js"></script>
     <script>

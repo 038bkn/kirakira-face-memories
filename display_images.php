@@ -2,17 +2,9 @@
 
 require './config.php';
 
-// データベースに接続
-$conn = new mysqli($servername, $username, $password, $database);
-
-// 接続確認
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // 画像情報をデータベースから取得
 $sql = "SELECT file_name, upload_date, kirari_score, comments FROM new_images";
-$result = $conn->query($sql);
+$stmt = $pdo->query($sql);
 
 // 星を表示する関数
 function getStars($score) {
@@ -49,30 +41,15 @@ function getStars($score) {
 <body>
     <h1>Uploaded Images</h1>
     <div class="image-gallery">
-        <?php
-        if ($result->num_rows > 0) {
-            // データベースに画像が存在する場合、表示する
-            while ($row = $result->fetch_assoc()) {
-                $fileName = htmlspecialchars($row['file_name']);
-                $kirariScore = $row['kirari_score'];
-                $comment = htmlspecialchars($row['comments']);  // 保存されたコメントを取得
-                echo '<div class="image-item">';
-                echo '<img src="uploads/' . $fileName . '" alt="' . $fileName . '">';
-                echo '<p>Uploaded on: ' . htmlspecialchars($row['upload_date']) . '</p>';
-                echo '<p>キラリ☆度: ' . htmlspecialchars($kirariScore) . '点</p>';
-                echo '<p>評価: ' . getStars($kirariScore) . '</p>';
-                echo '<p>コメント: ' . $comment . '</p>';
-                echo '</div>';
-            }
-        } else {
-            echo "<p>No images found.</p>";
-        }
-        ?>
+        <?php while ($row = $stmt->fetch()): ?>
+            <div class="image-item">
+                <img src="uploads/<?= htmlspecialchars($row['file_name']); ?>" alt="<?= htmlspecialchars($row['file_name']); ?>">
+                <p>Uploaded on: <?= htmlspecialchars($row['upload_date']); ?></p>
+                <p>キラリ☆度: <?= htmlspecialchars($row['kirari_score']); ?>点</p>
+                <p>評価: <?= getStars($row['kirari_score']); ?></p>
+                <p>コメント: <?= htmlspecialchars($row['comments']); ?></p>
+            </div>
+        <?php endwhile; ?>
     </div>
 </body>
 </html>
-
-<?php
-// データベース接続を閉じる
-$conn->close();
-?>
