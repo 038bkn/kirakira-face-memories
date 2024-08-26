@@ -33,10 +33,28 @@ node_modules/
 .cache/
 *.tmp
 *.swp
+*.pid
+*.lock
 
 # ログファイル
 *.log
 *.sql
 *.sqlite
 
-config.php
+# Composerの依存ファイル
+/vendor/
+
+# Node.jsの依存ファイル
+/node_modules/
+package-lock.json
+
+# Docker関連のファイル
+docker-compose.override.yml
+
+# Docker関連の設定ファイル
+docker-compose.override.yml
+.dockerignore
+
+# SSH keys
+*.pem
+*.key
