@@ -1,20 +1,16 @@
 <?php
+ob_start();
 
 require './config.php';
 require './comments.php';  // コメント生成関数をインクルード
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     $uploadDir = 'uploads/';
-    $uploadFile = $uploadDir . time() . '_' . basename($_FILES['image']['name']);
+    // ファイル名の無効な文字を除去する（ここでファイル名を安全にする）
+    $cleanFileName = preg_replace("/[^a-zA-Z0-9\.\-_]/", "", basename($_FILES["image"]["name"]));
+    $uploadFile = $uploadDir . time() . '_' . $cleanFileName;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
-
-    // ファイル名のバリデーション（英数字といくつかの特殊文字以外は除外）
-    $fileName = pathinfo($uploadFile, PATHINFO_FILENAME);
-    if (!preg_match('/^[a-zA-Z0-9_-]+$/', $fileName)) {
-        echo "Sorry, the file name contains invalid characters.";
-        $uploadOk = 0;
-    }
 
     // 画像が既に存在しているか確認
     if (file_exists($uploadFile)) {
@@ -59,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             $stmt->bindParam(':comments', $comment, PDO::PARAM_STR);
             $stmt->execute();
 
-            echo "The file ". htmlspecialchars(basename($_FILES['image']['name'])). " has been uploaded.";
+            echo "The file ". htmlspecialchars($cleanFileName). " has been uploaded.";
 
             // アップロード後に評価ページにリダイレクト
             header("Location: kirari_score.php?id=" . $pdo->lastInsertId());
@@ -68,5 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
+    } else {
+        echo "Sorry, the file was not uploaded.";
     }
 }
+
+ob_end_flush();
+?>
