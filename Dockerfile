@@ -16,6 +16,3 @@ RUN apt-get update && apt-get install -y libpq-dev \
 
 # アップロードフォルダのパーミッションを設定
 RUN chmod -R 755 /var/www/html/uploads
-
-# Apacheの設定をリロードして反映
-RUN service apache2 restart
