@@ -1,6 +1,10 @@
 # ベースイメージとしてPHPとApacheを使用
 FROM php:8.0-apache
 
+# 環境変数の設定
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
+
 # 作業ディレクトリを指定
 WORKDIR /var/www/html
 

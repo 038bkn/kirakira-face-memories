@@ -1,13 +1,29 @@
 <?php
-$dsn = getenv('DATABASE_URL');
+// 環境変数から `DATABASE_URL` を取得
+$url = parse_url(getenv('DATABASE_URL'));
+
+$host = $url["host"];  // ホスト名
+$port = isset($url["port"]) ? $url["port"] : 5432;  // ポート番号を手動で設定
+$user = $url["user"];  // ユーザー名
+$pass = $url["pass"];  // パスワード
+$dbname = ltrim($url["path"], '/');  // データベース名
+
+// DSN (Data Source Name) を構築
+$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass";
+
+echo "Host: $host\n";
+echo "Port: $port\n";
+echo "User: $user\n";
+echo "Password: $pass\n";
+echo "DB Name: $dbname\n";
 
 try {
-    $pdo = new PDO($dsn, null, null, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ]);
+    // PDOオブジェクトを作成し、データベースに接続
+    $pdo = new PDO($dsn);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Database connection successful!";
 } catch (PDOException $e) {
-    // エラーメッセージを出力し、スクリプトを終了
-    exit('Database connection failed: ' . $e->getMessage());
+    // エラーが発生した場合の処理
+    exit("Database connection failed: " . $e->getMessage());
 }
+?>
