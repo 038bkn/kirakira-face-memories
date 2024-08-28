@@ -16,7 +16,7 @@ $pass = $url["pass"];  // パスワード
 $dbname = ltrim($url["path"], '/');  // データベース名
 
 // DSN (Data Source Name) を構築
-$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;options=--endpoint%3D$endpoint;sslmode=require";
+$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;sslmode=require";
 
 try {
     // PDOオブジェクトを作成し、データベースに接続
@@ -26,4 +26,3 @@ try {
     // エラーが発生した場合の処理
     exit("Database connection failed: " . $e->getMessage());
 }
-?>
