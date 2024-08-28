@@ -8,8 +8,11 @@ $user = $url["user"];  // ユーザー名
 $pass = $url["pass"];  // パスワード
 $dbname = ltrim($url["path"], '/');  // データベース名
 
+// エンドポイントIDを取得する
+$endpoint = explode('.', $host)[0];  // ホスト名の最初の部分をエンドポイントIDとして使用
+
 // DSN (Data Source Name) を構築
-$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;options=--endpoint%3Dep-rapid-waterfall-a13gyfxn;sslmode=require";
+$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;options=--endpoint%3D$endpoint;sslmode=require";
 
 try {
     // PDOオブジェクトを作成し、データベースに接続
