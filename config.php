@@ -12,7 +12,7 @@ $dbname = ltrim($url["path"], '/');  // データベース名
 $endpoint = 'ep-rapid-waterfall-a13gyfxn';  // エンドポイントID
 
 // DSN (Data Source Name) を構築
-$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;options=--endpoint%3D$endpoint;sslmode=require";
+$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;options=--endpoint%3D$endpoint";
 
 try {
     // PDOオブジェクトを作成し、データベースに接続
