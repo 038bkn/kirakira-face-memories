@@ -3,12 +3,12 @@
 $url = parse_url(getenv('DATABASE_URL'));
 
 $host = $url["host"];  // ホスト名
-$port = isset($url["port"]) ? $url["port"] : 5432;  // ポート番号を手動で設定
+$port = isset($url["port"]) ? $url["port"] : 5432;  // ポート番号
 $user = $url["user"];  // ユーザー名
 $pass = $url["pass"];  // パスワード
 $dbname = ltrim($url["path"], '/');  // データベース名
 
-// エンドポイントIDを取得する
+// エンドポイントIDを動的に取得
 $endpoint = explode('.', $host)[0];  // ホスト名の最初の部分をエンドポイントIDとして使用
 
 // DSN (Data Source Name) を構築
