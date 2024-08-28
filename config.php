@@ -8,8 +8,8 @@ $user = $url["user"];  // ユーザー名
 $pass = $url["pass"];  // パスワード
 $dbname = ltrim($url["path"], '/');  // データベース名
 
-// エンドポイントIDを動的に取得
-$endpoint = explode('.', $host)[0];  // ホスト名の最初の部分をエンドポイントIDとして使用
+// エンドポイントIDを明示的に指定
+$endpoint = 'ep-rapid-waterfall-a13gyfxn';  // エンドポイントID
 
 // DSN (Data Source Name) を構築
 $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$pass;options=--endpoint%3D$endpoint;sslmode=require";
