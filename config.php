@@ -1,13 +1,21 @@
 <?php
+// デバッグモードを有効にするフラグ（必要に応じてtrueに）
+$debug = false;
+
 // 環境変数から `DATABASE_URL` を取得
 $database_url = getenv('DATABASE_URL');
 if ($database_url === false || empty($database_url)) {
     exit("DATABASE_URL environment variable is not set or empty.");
 }
 
-echo "DATABASE_URL: " . $database_url . "\n";
+if ($debug) {
+    echo "DATABASE_URL: " . $database_url . "\n";
+}
+
 $url = parse_url($database_url);
-print_r($url);
+if ($debug) {
+    print_r($url);
+}
 
 $host = $url["host"];  // ホスト名
 $port = isset($url["port"]) ? $url["port"] : 5432;  // ポート番号
@@ -26,3 +34,4 @@ try {
     // エラーが発生した場合の処理
     exit("Database connection failed: " . $e->getMessage());
 }
+?>
