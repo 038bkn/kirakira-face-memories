@@ -6,24 +6,28 @@ require './comments.php';  // コメント生成関数をインクルード
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     $uploadDir = 'uploads/';
-    // ファイル名の無効な文字を除去する（ここでファイル名を安全にする）
     $cleanFileName = preg_replace("/[^a-zA-Z0-9\.\-_]/", "", basename($_FILES["image"]["name"]));
     $uploadFile = $uploadDir . time() . '_' . $cleanFileName;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
 
+    // ファイルが選択されているか確認
+    if (empty($_FILES['image']['tmp_name'])) {
+        echo "あれれ？画像が選択されていないみたい💦";
+        $uploadOk = 0;
+    } else {
+        $check = getimagesize($_FILES['image']['tmp_name']);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "これは画像じゃないみたい…📷";
+            $uploadOk = 0;
+        }
+    }
+
     // 画像が既に存在しているか確認
     if (file_exists($uploadFile)) {
         echo "う〜ん、このファイルはすでにアップロードされてるみたいだよ💦";
-        $uploadOk = 0;
-    }
-
-    // ファイルの種類を確認
-    $check = getimagesize($_FILES['image']['tmp_name']);
-    if($check !== false) {
-        $uploadOk = 1;
-    } else {
-        echo "これは画像じゃないみたい…📷";
         $uploadOk = 0;
     }
 
@@ -65,9 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             echo "ごめんね、ファイルをアップロードする時に問題が起こっちゃったみたい…😢";
         }
     } else {
-        echo "ファイルがアップロードできなかったみたい。もう一度試してみてね！";
+        echo "ファイルがアップロードされなかったみたい。もう一度試してみてね！";
     }
 }
 
 ob_end_flush();
+
 ?>
