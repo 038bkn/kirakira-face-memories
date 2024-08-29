@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <div class="background"></div>
+    <div class="star"></div>
+    <script src="./js/background-stars.js"></script>
+
     <?php include 'header.php'; ?>
 
     <main>
@@ -22,7 +26,7 @@
             </div>
             <div class="subnav-container">
                 <a href="upload_face.php" class="subnav" id="upload-now">今すぐアップロード</a>
-                <a href="album.php" class="subnav">アルバムを見る</a>
+                <a href="#" class="subnav">アルバムを見る</a>
             </div>
             <div class="upload-container">
                 <p>今日の自撮りをアップロードして、キラキラ度を測ってみよ～☆</p>

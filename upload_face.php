@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <div class="background"></div>
+    <div class="star"></div>
+    <script src="./js/background-stars.js"></script>
+    
     <?php include 'header.php'; ?>
 
     <main>

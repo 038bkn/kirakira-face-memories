@@ -22,7 +22,7 @@
     text-align: center;
     margin-top: 30px;
 }
-
+/* 
 .dot {
     cursor: pointer;
     height: 13px;
@@ -38,8 +38,8 @@
 .active,
 .dot:hover {
     background-color: #9b67aad3;
-}
+} */
 
 .lottie {
-    top: 79%;
+    top: 87%;
 }

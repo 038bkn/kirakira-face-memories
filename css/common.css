@@ -28,12 +28,33 @@ a {
     text-decoration: none;
 }
 
+/* 背景 */
+.background {
+    background: url(../images/background.png) center/cover no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* 背景アニメーション用の星 */
+.star {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 /* コンテナ設定 */
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 10px;
+    position: relative;
+    z-index: 1;
 }
 
 /* ヘッダー */
@@ -101,16 +122,18 @@ main {
     display: flex;
     justify-content: center;
     height: calc(100vh - 190px);
-    background: #F6C7FF url(../images/background.png) center/cover no-repeat;
     text-align: center;
     padding: 20px 10px;
     margin-top: 90px;
+    position: relative;
+    z-index: 2;
 }
 
 .title-container {
     position: relative;
     display: inline-block;
     animation: fadeIn 1.5s ease-in-out;
+    z-index: 3;
 }
 
 .title {
@@ -145,6 +168,7 @@ main {
     justify-content: center;
     gap: 20px;
     margin-top: 7px;
+    z-index: 3;
 }
 
 .subnav {
@@ -169,6 +193,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10000;
+    position: relative;
 }
 
 footer p {
@@ -182,6 +208,7 @@ footer p {
     width: 440px;
     margin: 0 auto;
     position: relative;
+    z-index: 3;
 }
 
 .recent-image {
@@ -190,7 +217,7 @@ footer p {
     top: 50%;
     left: 23%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: 3;
 }
 
 .recent-text {
@@ -222,12 +249,15 @@ footer p {
 #preview-area img {
     max-width: 300px;
     max-height: 300px;
+    z-index: 3;
 }
 
+/* Lottie アニメーション */
 .lottie {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 3;
 }
 
 /* サンプルボックス */
@@ -241,6 +271,7 @@ footer p {
     border-radius: 10px;
     width: 80%;
     box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
+    z-index: 3;
 }
 
 /* アップロードタイトル */
@@ -253,4 +284,5 @@ footer p {
     margin: 0 auto;
     border-radius: 20px;
     padding: 10px;
+    z-index: 3;
 }
