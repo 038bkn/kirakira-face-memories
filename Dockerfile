@@ -22,8 +22,9 @@ RUN apt-get update && apt-get install -y wget gnupg2 \
 # libpqのバージョンを確認するためにpg_configを使用
 RUN pg_config --version && echo "libpq version check completed"
 
-# アップロードフォルダが存在しない場合に作成
-RUN mkdir -p /var/www/html/uploads
+# アップロードフォルダが存在しない場合に作成し、権限を設定
+RUN mkdir -p /var/www/html/uploads \
+    && chmod -R 777 /var/www/html/uploads
 
 # アップロードフォルダのパーミッションを設定
 RUN chmod -R 755 /var/www/html/uploads
