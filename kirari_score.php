@@ -30,6 +30,10 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="./css/kirari_score.css">
 </head>
 <body>
+    <div class="background"></div>
+    <div class="star"></div>
+    <script src="./js/background-stars.js"></script>
+    
     <?php include 'header.php'; ?>
 
     <main>
