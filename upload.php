@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
 
     // 画像が既に存在しているか確認
     if (file_exists($uploadFile)) {
-        echo "Sorry, file already exists.";
+        echo "う〜ん、このファイルはすでにアップロードされてるみたいだよ💦";
         $uploadOk = 0;
     }
 
@@ -23,20 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     if($check !== false) {
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        echo "これは画像じゃないみたい…📷";
         $uploadOk = 0;
     }
 
     // ファイルサイズを確認
     if ($_FILES['image']['size'] > 500000) {
-        echo "Sorry, your file is too large.";
+        echo "ごめんね、このファイルはちょっと大きすぎるみたい💦";
         $uploadOk = 0;
     }
 
     // 特定のファイル形式のみ許可
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        echo "対応してるファイル形式はJPG、JPEG、PNG、GIFだけなんだ…😅";
         $uploadOk = 0;
     }
 
@@ -55,17 +55,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             $stmt->bindParam(':comments', $comment, PDO::PARAM_STR);
             $stmt->execute();
 
-            echo "The file ". htmlspecialchars($cleanFileName). " has been uploaded.";
+            echo "ファイル " . htmlspecialchars($cleanFileName) . " が無事アップロードされたよ！✨";
 
             // アップロード後に評価ページにリダイレクト
             header("Location: kirari_score.php?id=" . $pdo->lastInsertId());
             exit();
 
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "ごめんね、ファイルをアップロードする時に問題が起こっちゃったみたい…😢";
         }
     } else {
-        echo "Sorry, the file was not uploaded.";
+        echo "ファイルがアップロードできなかったみたい。もう一度試してみてね！";
     }
 }
 
