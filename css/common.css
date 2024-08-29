@@ -12,7 +12,7 @@ body, h1, ul, li, a {
     color: #FDF8FE;
     font-size: 16px;
     line-height: 120%;
-    text-shadow: 2px 2px 8px rgba(136, 81, 173, 0.603);
+    text-shadow: 2px 2px 8px rgba(212, 78, 230, 0.603);
 }
 
 html, body {
@@ -59,7 +59,7 @@ a {
 
 /* ヘッダー */
 header {
-    background-color: #C696E7;
+    background-color: #cd83ff;
     padding: 20px 10px;
     height: 50px;
     display: flex;
@@ -68,7 +68,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(212, 159, 212, 1.0);
+    box-shadow: 0 4px 6px rgba(226, 143, 236, 1.0);
 }
 
 header .container {
@@ -98,8 +98,8 @@ header .container {
 }
 
 .header-right ul li a:hover {
-    background-color: #FDF8FE;
-    color: #C696E7;
+    background-color: #efe7f5;
+    color: #cd83ff;
 }
 
 .header-center {
@@ -173,8 +173,8 @@ main {
 
 .subnav {
     padding: 10px 20px;
-    color: #fcf57d;
-    background-color: #e796e7d3;
+    color: #fcf56f;
+    background-color: #EE90FF;
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
     text-shadow: 2px 2px 8px rgba(252, 245, 125, 0.2);
@@ -182,12 +182,12 @@ main {
 
 .subnav:hover {
     background-color: #FDF8FE;
-    color: #e796e7d3;
+    color: #EE90FF;
 }
 
 /* フッター */
 footer {
-    background-color: #C696E7;
+    background-color: #cd83ff;
     padding: 10px;
     height: 40px;
     display: flex;
@@ -195,11 +195,6 @@ footer {
     justify-content: center;
     z-index: 10000;
     position: relative;
-}
-
-footer p {
-    margin: 0;
-    color: #FDF8FE;
 }
 
 /* 最近のキラキラセクション */
@@ -234,16 +229,10 @@ footer p {
     font-size: 14px;
 }
 
-.sub-back {
-    background-color: #F6C7FF;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
-}
-
-.recent-explain, .explain {
+/* .recent-explain, .explain {
     color: #bb7ece;
     text-shadow: 1px 1px 1px #d4b6cc;
-}
+} */
 
 /* プレビューエリア */
 #preview-area img {
@@ -264,13 +253,13 @@ footer p {
 .sample_box13 {
     padding: 1em 1.5em;
     margin: 1em auto;
-    background: #d796e7b0;
-    background-image: radial-gradient(#dbc2ebb0 10%, transparent 15%), radial-gradient(#dbc2ebb0 10%, transparent 15%);
+    background: #EE90FF;
+    background-image: radial-gradient(rgb(235, 192, 240) 10%, transparent 15%), radial-gradient(rgb(235, 192, 240) 10%, transparent 15%);
     background-position: 0 0, 10px 10px;
     background-size: 20px 20px;
     border-radius: 10px;
     width: 80%;
-    box-shadow: 0 4px 8px rgba(212, 159, 212, 1.0);
+    box-shadow: 0 4px 6px rgba(226, 143, 236, 1.0);
     z-index: 3;
 }
 
