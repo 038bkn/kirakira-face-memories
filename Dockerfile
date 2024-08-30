@@ -5,8 +5,8 @@ FROM php:8.0-apache
 ARG DATABASE_URL
 ENV DATABASE_URL=$DATABASE_URL
 
-# Node.jsのインストール
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
+# Node.jsのインストール (Node.js 18.xをインストール)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm
 
