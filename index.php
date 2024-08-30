@@ -23,14 +23,14 @@
             <div class="title-container">
                 <img class="title title-img" src="./images/title.png" alt="キラめもタイトル">
                 <p class="title-text">キラ☆めもへようこそ！<br>
-                    自撮り写真をアップロードして、キラリ☆度をチェック！</p>
+                    アナタのキラリ☆度をチェック！</p>
             </div>
             <div class="subnav-container">
                 <a href="upload_face.php" class="subnav" id="upload-now">今すぐアップロード</a>
                 <a href="#" class="subnav">アルバムを見る</a>
             </div>
             <div class="upload-container">
-                <p>今日の自撮りをアップロードして、キラキラ度を測ってみよ～☆</p>
+                <p>ステキな画像をアップロードして、キラキラ度を測ってみよ～☆</p>
                 <div class="file-drop-area">
                     <form action="upload.php" method="post" enctype="multipart/form-data">
                         <span class="fake-btn">ファイルを選択する</span>か、<br>
@@ -40,7 +40,7 @@
                 <input class="submit-btn" type="submit" value="これでおk☆彡" name="submit">
                 </form>
             </div>
-            <p class="recent-text">☆今までのキラキラ☆(が表示される予定～♡)</p>
+            <p class="recent-text">☆今までのキラキラ☆(の表示予定🌟)</p>
             <div class="lottie">
                 <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
                     type="module"></script>

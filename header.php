@@ -4,7 +4,7 @@
             <img class="logo" src="./images/logo.png" alt="キラめもロゴ">
         </div>
         <div class="header-center">
-            <h1><?php echo basename($_SERVER['PHP_SELF']) == 'upload_face.php' ? '自撮りアップロード' : 'ホーム'; ?></h1>
+            <h1><?php echo basename($_SERVER['PHP_SELF']) == 'upload_face.php' ? 'アップロード' : 'ホーム'; ?></h1>
         </div>
         <div class="responsive_btn">
             <div class="menu_line"></div>

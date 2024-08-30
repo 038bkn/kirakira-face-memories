@@ -1,3 +1,31 @@
+.title-container {
+    position: relative;
+    display: inline-block;
+    animation: fadeIn 1.5s ease-in-out;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    width: 40%;
+    min-width: 360px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.title-text {
+    position: absolute;
+    top: 48%;
+    /* bottom: 5%; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    /* 最小1.2rem | SP:1.4rem | TB:1.5rem | PC:1.6rem | 最大1.8rem */
+	font-size: clamp(0.8rem, calc(0.4vw + 0.6rem), 1rem);
+}
+
 .slideshow-container {
     position: relative;
     margin: auto;
@@ -22,6 +50,7 @@
     text-align: center;
     margin-top: 30px;
 }
+
 /* 
 .dot {
     cursor: pointer;
@@ -42,4 +71,16 @@
 
 .lottie {
     top: 87%;
+}
+
+@media only screen and (max-width: 767px) {
+    #css {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .recent-text {
+        display: none;
+    }
 }

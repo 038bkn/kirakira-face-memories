@@ -4,24 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>キラめも☆自撮りアップロード画面</title>
+    <title>キラめも☆アップロード画面</title>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/uploadarea.css">
-    <link rel="stylesheet" href="./css/upload_face.css">
+    <link rel="stylesheet" href="./css/upload_face.css">    
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 
 <body>
     <div class="background"></div>
     <div class="star"></div>
     <script src="./js/background-stars.js"></script>
-    
+
     <?php include 'header.php'; ?>
 
     <main>
         <div class="container">
             <div class="upload-title">
                 <p class="sample_box13">
-                    自撮りアップロードの時間だよ―！！！<br>
+                    アップロードの時間だよ―！！！<br>
                     ベストショットをアップして、キラリ☆度をチェック！
                 </p>
             </div>
@@ -71,6 +72,7 @@
             }
         });
     </script>
+    <script src="js/header.js"></script> 
 </body>
 
 </html>

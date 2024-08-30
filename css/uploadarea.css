@@ -26,7 +26,8 @@
 .file-drop-area {
     display: flex;
     align-items: center;
-    width: 420px;
+    width: 80%;
+    max-width: 500px;
     padding: 33px;
     padding-bottom: 17px;
     border-radius: 20px;
