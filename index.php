@@ -40,7 +40,7 @@
                 <input class="submit-btn" type="submit" value="これでおk☆彡" name="submit">
                 </form>
             </div>
-            <p class="recent-text">☆今までのキラキラ☆(の表示予定🌟)</p>
+            <!-- <p class="recent-text">☆今までのキラキラ☆(の表示予定🌟)</p> -->
             <div class="lottie">
                 <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
                     type="module"></script>
