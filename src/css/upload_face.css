@@ -41,5 +41,6 @@
 }
 
 .sample_box13 {
-    width: 35%;
+    width: 80%;
+    max-width: 600px;
 }

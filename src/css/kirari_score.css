@@ -8,8 +8,8 @@
 
 .image-preview img {
     max-width: 1000px;
-    max-height: 400px;
-    width: auto;
+    max-height: 350px;
+    width: 90%;
     height: auto;
     margin: 10px auto;
     border-radius: 20px;
