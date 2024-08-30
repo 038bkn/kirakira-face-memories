@@ -58,3 +58,64 @@ docker-compose.override.yml
 # SSH keys
 *.pem
 *.key
+
+# Tailwind CSSのビルド生成物
+public/css/output.css
+
+# PostCSS関連のファイル
+.postcssrc
+postcss.config.js
+
+# Tailwind CSS関連のファイル
+tailwind.config.js
+
+# Node.jsの依存ファイル
+/node_modules/
+package-lock.json
+
+# ビルドツールのキャッシュやログファイル
+.npm/
+.yarn/
+*.log
+
+# macOS のシステムファイル
+.DS_Store
+
+# Windows のシステムファイル
+Thumbs.db
+ehthumbs.db
+
+# IDE / エディタ設定
+.vscode/
+.idea/
+
+# PHP とプロジェクト関連の基本設定
+*.log
+*.env
+uploads/
+*.php~
+*.phar
+
+# ビルド生成物
+dist/
+build/
+
+# Docker関連の設定ファイル
+docker-compose.override.yml
+.dockerignore
+
+# キャッシュファイル
+.cache/
+*.cache
+*.tmp
+*.swp
+*.pid
+*.lock
+
+# ログファイル
+*.sql
+*.sqlite
+
+# SSH keys
+*.pem
+*.key
