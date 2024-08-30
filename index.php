@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/uploadarea.css">
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/header.css">
 </head>
 
 <body>
@@ -55,6 +56,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/script.js"></script>
+    <script src="js/header.js"></script> 
 </body>
 
 </html>
