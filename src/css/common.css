@@ -1,7 +1,7 @@
 /* フォント設定 */
 @font-face {
     font-family: 'Maru Minya';
-    src: url(../fonts/x12y12pxMaruMinyaM.ttf) format('truetype');
+    src: url(/public/fonts/x12y12pxMaruMinyaM.ttf) format('truetype');
 }
 
 /* 全体の設定 */
@@ -35,7 +35,7 @@ a {
 
 /* 背景 */
 .background {
-    background: url(../images/background.png) center/cover no-repeat;
+    background: url(/public/images/background.png) center/cover no-repeat;
     position: absolute;
     top: 0;
     left: 0;
@@ -55,7 +55,6 @@ a {
 /* コンテナ設定 */
 .container {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 10px;
     position: relative;

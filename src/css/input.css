@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Maru Minya';
+    src: url('/public/fonts/x12y12pxMaruMinyaM.ttf') format('truetype');
+}

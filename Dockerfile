@@ -5,8 +5,22 @@ FROM php:8.0-apache
 ARG DATABASE_URL
 ENV DATABASE_URL=$DATABASE_URL
 
+# Node.jsのインストール
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm
+
 # 作業ディレクトリを指定
 WORKDIR /var/www/html
+
+# package.jsonとpackage-lock.jsonを最初にコピーして依存関係をインストール
+COPY package*.json ./
+RUN npm install
+
+# Tailwindの設定ファイルとソースファイルをコピーしてビルド
+COPY src/css ./src/css
+COPY tailwind.config.js ./
+RUN npm run build:css
 
 # プロジェクトのすべてのファイルをコンテナ内にコピー
 COPY . .
@@ -27,5 +41,5 @@ RUN mkdir -p /var/www/html/uploads \
     && chown -R www-data:www-data /var/www/html/uploads \
     && chmod -R 755 /var/www/html/uploads
 
-# アップロードフォルダのパーミッションを設定
-RUN chmod -R 755 /var/www/html/uploads
+# 必要なポートを公開
+EXPOSE 80

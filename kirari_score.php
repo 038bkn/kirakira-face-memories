@@ -27,15 +27,15 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>キラリ☆評価画面</title>
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/kirari_score.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="/src/css/common.css">
+    <link rel="stylesheet" href="/src/css/kirari_score.css">
+    <link rel="stylesheet" href="/src/css/header.css">
 </head>
 
 <body>
     <div class="background"></div>
     <div class="star"></div>
-    <script src="./js/background-stars.js"></script>
+    <script src="/public/js/background-stars.js"></script>
 
     <?php include 'header.php'; ?>
 
@@ -78,7 +78,7 @@ if (isset($_GET['id'])) {
 
     <?php include 'footer.php'; ?>
 
-    <script src="js/header.js"></script>
+    <script src="/public/js/header.js"></script>
 </body>
 
 </html>

@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>キラめも☆アップロード画面</title>
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/uploadarea.css">
-    <link rel="stylesheet" href="./css/upload_face.css">    
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="/src/css/common.css">
+    <link rel="stylesheet" href="/src/css/uploadarea.css">
+    <link rel="stylesheet" href="/src/css/upload_face.css">    
+    <link rel="stylesheet" href="/src/css/header.css">
 </head>
 
 <body>
     <div class="background"></div>
     <div class="star"></div>
-    <script src="./js/background-stars.js"></script>
+    <script src="/public/js/background-stars.js"></script>
 
     <?php include 'header.php'; ?>
 
@@ -55,8 +55,8 @@
     <?php include 'footer.php'; ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/script.js"></script>
-    <script src="js/header.js"></script> 
+    <script src="/public/js/script.js"></script>
+    <script src="/public/js/header.js"></script> 
     <script>
         // 画像プレビュー機能
         $('.file-input').on('change', function (event) {

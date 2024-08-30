@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>キラめも☆ホーム画面</title>
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/uploadarea.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="/src/css/common.css">
+    <link rel="stylesheet" href="/src/css/uploadarea.css">
+    <link rel="stylesheet" href="/src/css/home.css">
+    <link rel="stylesheet" href="/src/css/header.css">
 </head>
 
 <body>
     <div class="background"></div>
     <div class="star"></div>
-    <script src="./js/background-stars.js"></script>
+    <script src="/public/js/background-stars.js"></script>
 
     <?php include 'header.php'; ?>
 
     <main>
         <div class="container">
             <div class="title-container">
-                <img class="title title-img" src="./images/title.png" alt="キラめもタイトル">
+                <img class="title title-img" src="/public/images/title.png" alt="キラめもタイトル">
                 <p class="title-text">キラ☆めもへようこそ！<br>
                     アナタのキラリ☆度をチェック！</p>
             </div>
@@ -55,8 +55,8 @@
     <?php include 'footer.php'; ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/script.js"></script>
-    <script src="js/header.js"></script> 
+    <script src="/public/js/script.js"></script>
+    <script src="/public/js/header.js"></script> 
 </body>
 
 </html>
