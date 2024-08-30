@@ -56,6 +56,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/script.js"></script>
+    <script src="js/header.js"></script> 
     <script>
         // 画像プレビュー機能
         $('.file-input').on('change', function (event) {
@@ -72,7 +73,6 @@
             }
         });
     </script>
-    <script src="js/header.js"></script> 
 </body>
 
 </html>
