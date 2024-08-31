@@ -15,7 +15,7 @@
             <ul class="header_nav_lists">
                 <li><a class="nav_link" href="/index.php">ホーム</a></li>
                 <li><a class="nav_link" href="#">アルバム</a></li>
-                <li><a class="nav_link" href="#">ランキング</a></li>
+                <li><a class="nav_link" href="/signin.php">ログイン</a></li>
             </ul>
         </nav>
     </div>
