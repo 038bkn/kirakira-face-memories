@@ -36,15 +36,6 @@
                             <input type="submit" name="" value="Sign In">
                         </div>
                     </div>
-                    <p class="forgot">Forgot Password? <a href="#">Click Here</a></p>
-                    <div class="social">
-                        <button><i class="fa fa-facebook" aria-hidden="true"></i>
-                            <p>Signin with Facebook</p>
-                        </button>
-                        <button><i class="fa fa-twitter" aria-hidden="true"></i>
-                            <p>Signin with Twitter</p>
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>

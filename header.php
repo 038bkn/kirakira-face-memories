@@ -4,7 +4,22 @@
             <img class="logo" src="/public/images/logo.png" alt="キラめもロゴ">
         </div>
         <div class="header-center">
-            <h1><?php echo basename($_SERVER['PHP_SELF']) == 'upload_face.php' ? 'アップロード' : 'ホーム'; ?></h1>
+            <h1>
+                <?php
+                $page = basename($_SERVER['PHP_SELF']);
+                if ($page === 'index.php') {
+                    echo 'ホーム画面';
+                } elseif ($page === 'signin.php') {
+                    echo 'ログイン';
+                } elseif ($page === 'upload_face.php') {
+                    echo 'アップロード';
+                } elseif ($page === 'display_images.php') {
+                    echo 'アルバム';
+                } else {
+                    echo 'ホーム';
+                }
+                ?>
+                </h1>
         </div>
         <div class="responsive_btn">
             <div class="menu_line"></div>
