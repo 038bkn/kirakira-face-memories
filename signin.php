@@ -33,7 +33,7 @@
                             <input type="password">
                         </div>
                         <div class="inputBox">
-                            <input type="submit" name="" value="Sign In">
+                            <input type="submit" name="" value="ログイン">
                         </div>
                     </div>
                 </div>
