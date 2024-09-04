@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI
 
 on:
   push:
@@ -10,27 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'  # 推奨される最新のNode.jsバージョン
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Tailwind CSS
-        run: npm run build:css
-
-      - name: Setup PHP
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
+          extensions: pdo_pgsql
 
-      - name: Install PHP dependencies
-        run: composer install
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Run tests
-        run: phpunit
+      - name: Run Tests
+        run: |
+          php vendor/bin/phpunit --testdox
