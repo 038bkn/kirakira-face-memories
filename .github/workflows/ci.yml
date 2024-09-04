@@ -3,26 +3,34 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main  # mainブランチにプッシュされたときに実行
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # ビルドに使う仮想環境
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2  # リポジトリのコードをチェックアウト
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Node.jsのバージョンを指定
+          node-version: '20'  # 推奨される最新のNode.jsバージョン
 
       - name: Install dependencies
-        run: npm install  # パッケージをインストール
+        run: npm install
 
-      - name: Build project
-        run: npm run build:css  # Tailwindのビルドコマンドを実行
+      - name: Build Tailwind CSS
+        run: npm run build:css
 
-      - name: Run PHP tests
-        run: phpunit  # PHPUnitでテストを実行
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Install PHP dependencies
+        run: composer install
+
+      - name: Run tests
+        run: phpunit
