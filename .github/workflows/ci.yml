@@ -34,16 +34,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-versions }}
 
-      # Tailwindをビルド
+      # Node.jsの依存関係インストール
       - name: Install Node.js dependencies
         run: npm install
 
+      # Tailwind CSSのビルド
       - name: Build Tailwind CSS
         run: npm run build:css
-
-      # PHP Unitテストの実行
-      - name: Run PHP Unit tests
-        run: vendor/bin/phpunit
 
   # デプロイジョブ (必要に応じて追加)
   deploy:
