@@ -1,7 +1,10 @@
-name: CI
+name: CI Pipeline
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -9,18 +12,43 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+    strategy:
+      matrix:
+        php-versions: ['8.0']
+        node-versions: ['20.x']
 
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # PHPのセットアップ
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
-          extensions: pdo_pgsql
+          php-version: ${{ matrix.php-versions }}
 
-      # - name: Install Composer dependencies
-      #   run: composer install --prefer-dist --no-progress --no-suggest
+      # Node.jsのセットアップ
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-versions }}
 
-      - name: Run Tests
-        run: |
-          php vendor/bin/phpunit --testdox
+      # Tailwindをビルド
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Build Tailwind CSS
+        run: npm run build:css
+
+      # PHP Unitテストの実行
+      - name: Run PHP Unit tests
+        run: vendor/bin/phpunit
+
+  # デプロイジョブ (必要に応じて追加)
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
