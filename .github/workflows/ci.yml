@@ -47,5 +47,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      # 再度リポジトリをチェックアウト
       - name: Checkout repository
         uses: actions/checkout@v3
