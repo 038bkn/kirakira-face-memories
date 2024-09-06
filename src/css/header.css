@@ -130,3 +130,7 @@ header .container {
 .menu_active {
     right: 0;
 }
+
+.header-right {
+    margin-right: 20px;
+}
